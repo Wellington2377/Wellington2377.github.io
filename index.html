@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vapers Shop RD - Tu mejor opción en vapers y accesorios en República Dominicana.">
+  <meta property="og:title" content="Vapers Shop RD">
+  <meta property="og:description" content="Tu mejor opción en vapers y accesorios en República Dominicana.">
+  <meta property="og:image" content="https://ejemplo.com/img/logo.png">
+  <meta property="og:url" content="https://ejemplo.com">
   <title>Vapers Shop RD</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -309,6 +313,19 @@
         font-size: 1.5rem;
       }
     }
+
+    /* Efecto de carga suave (skeleton loading) */
+    .skeleton {
+      background: #444;
+      border-radius: 8px;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
   </style>
 </head>
 <body>
@@ -317,11 +334,11 @@
       <div class="logo">
         <img src="img/logo.png" alt="Logo de Vapers Shop RD">
       </div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">☰</div>
       <ul class="menu" id="menu">
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#products">Productos</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#home" aria-label="Inicio">Inicio</a></li>
+        <li><a href="#products" aria-label="Productos">Productos</a></li>
+        <li><a href="#contact" aria-label="Contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -336,57 +353,57 @@
       <h2>Productos</h2>
       <div class="product-list">
         <div class="product-item">
-          <img src="img/Chipero.jpeg" alt="Vaper El Chipero">
+          <img src="img/Chipero.jpeg" alt="Vaper El Chipero" loading="lazy">
           <h3>El Chipero</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar El Chipero">Comprar</button>
         </div>
         <div class="product-item">
-          <img src="img/El-Domi.jpeg" alt="Vaper El Domi">
+          <img src="img/El-Domi.jpeg" alt="Vaper El Domi" loading="lazy">
           <h3>El Domi</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar El Domi">Comprar</button>
         </div>
         <div class="product-item">
-          <img src="img/El-Detone.jpeg" alt="Vaper El Detone">
+          <img src="img/El-Detone.jpeg" alt="Vaper El Detone" loading="lazy">
           <h3>El Detone</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar El Detone">Comprar</button>
         </div>
         <div class="product-item">
-          <img src="img/La-Poppi.jpeg" alt="Vaper La Poppi">
+          <img src="img/La-Poppi.jpeg" alt="Vaper La Poppi" loading="lazy">
           <h3>La Poppi</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar La Poppi">Comprar</button>
         </div>
         <div class="product-item">
-          <img src="img/El-Domi.jpeg" alt="Vaper El Juidero">
+          <img src="img/El-Juidero.jpeg" alt="Vaper El Juidero" loading="lazy">
           <h3>El Juidero</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar El Juidero">Comprar</button>
         </div>
         <div class="product-item">
-          <img src="img/El-Aguantala.jpeg" alt="Vaper El Aguantala">
+          <img src="img/El-Aguantala.jpeg" alt="Vaper El Aguantala" loading="lazy">
           <h3>El Aguantala</h3>
           <p>RD$ 850.00</p>
-          <button>Comprar</button>
+          <button onclick="redirectToWhatsApp('El Chipero', 850)" aria-label="Comprar El Aguantala">Comprar</button>
         </div>
       </div>
     </section>
 
     <section id="contact" class="contact">
       <h2>Contáctanos</h2>
-      <form>
+      <form id="contactForm">
         <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required aria-label="Nombre">
 
         <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required aria-label="Correo Electrónico">
 
         <label for="message">Mensaje:</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message" required aria-label="Mensaje"></textarea>
 
-        <button type="submit">Enviar</button>
+        <button type="submit" aria-label="Enviar mensaje">Enviar</button>
       </form>
     </section>
   </main>
@@ -394,17 +411,52 @@
   <footer>
     <p>&copy; 2025 Vapers Shop RD. Todos los derechos reservados.</p>
     <div class="social-links">
-      <a href="https://www.instagram.com/vapersshoprd?igsh=a21pNnVub2NpMGxp" target="_blank">
+      <a href="https://www.instagram.com/vapersshoprd?igsh=a21pNnVub2NpMGxp" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
   </footer>
 
   <script>
+    // Función para el menú responsive
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.classList.toggle('active');
     }
+
+   // Función para redirigir a WhatsApp
+   function redirectToWhatsApp(productName, price) {
+      const phoneNumber = "+18097584445"; // Reemplaza con el número de WhatsApp de la tienda (incluye código de país)
+      const message = `Hola, estoy interesado en comprar el producto *${productName}* por *RD$ ${price}*. ¿Podrían ayudarme?`;
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank'); // Abre en una nueva pestaña
+    }
+
+    // Validación del formulario
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      const email = document.getElementById('email').value;
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Por favor, introduce un correo electrónico válido.');
+        event.preventDefault(); // Evita que el formulario se envíe.
+      }
+    });
+
+    // Efecto de carga suave (skeleton loading)
+    document.addEventListener('DOMContentLoaded', function () {
+      const productItems = document.querySelectorAll('.product-item');
+      productItems.forEach(item => {
+        item.classList.add('skeleton');
+      });
+
+      setTimeout(() => {
+        productItems.forEach(item => {
+          item.classList.remove('skeleton');
+        });
+      }, 1500);
+    });
   </script>
 </body>
 </html>
